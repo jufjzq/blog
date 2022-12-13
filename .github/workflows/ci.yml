@@ -18,5 +18,5 @@ jobs:
       - name: Deploy 🚀 # 部署
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: static-pages # 部署后提交到的分支
+          branch: gh-pages # 部署后提交到的分支
           folder: docs/.vuepress/dist # 打包好的目录名称
