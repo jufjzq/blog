@@ -15,13 +15,13 @@ jobs:
           npm install
           npm run docs:build
 
-      - name: Set node version to 16
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
+      # - name: Set node version to 16
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: 16
 
       - name: Deploy 🚀 # 部署
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
-          branch: master:gh-pages # 部署后提交到的分支
+          branch: static-pages # 部署后提交到的分支
           folder: docs/.vuepress/dist # 打包好的目录名称
