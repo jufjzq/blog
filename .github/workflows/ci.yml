@@ -1,0 +1,24 @@
+name: Deploy Github
+on:
+  push:
+    branches:
+      - master
+permissions:
+  contents: write
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout  # 将代码拉到虚拟机
+        uses: actions/checkout@v3
+
+      - name: Install and Build # 下载依赖 打包项目
+        run: |
+          npm install
+          npm run docs:build
+
+      - name: Deploy 🚀 # 部署
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: master:gh-pages # 部署后提交到的分支
+          folder: docs/.vuepress/dist # 打包好的目录名称
